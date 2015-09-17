@@ -1,4 +1,4 @@
-CodeJam2014
+CodeJam
 ===========
 
-My solutions for Code jam 2014
+My solutions for most of the coding questions appearing at various places
