@@ -19,7 +19,7 @@ public class DivideWithoutOperator {
         StringBuilder out= new StringBuilder();
         int bp=0;
         int ap=0;
-        while(n>d)
+        while(n>=d)
         {
             n = n - d;
             bp++;
@@ -42,7 +42,7 @@ public class DivideWithoutOperator {
     }
 
     public static void main(String[] args) {
-        System.out.println(divide(22, 11, 2));//0.0107237499
+        System.out.println(divide(22, 12, 15));//0.0107237499
         // System.out.println(divide(1000, 3, 3));
     }
 }
