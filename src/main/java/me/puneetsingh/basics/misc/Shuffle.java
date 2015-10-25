@@ -4,12 +4,13 @@ package me.puneetsingh.basics.misc;
 
 import me.puneetsingh.utils.SortHelper;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 public class Shuffle {
     public static void randomize(Comparable[] a)
     {
-        Random r = new Random((new Random()).nextInt());
+        SecureRandom r = new SecureRandom();
         try {
             Thread.sleep(r.nextInt(1000));
             //Adding one more layer of randomness to protect time based generated random number
