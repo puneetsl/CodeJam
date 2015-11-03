@@ -21,7 +21,7 @@ public class QuickSort {
             return;
         while(i<=j)
         {
-            System.out.println(i+":"+j+":"+pivIndex);
+            //System.out.println(i+":"+j+":"+pivIndex);
             while(SortHelper.less(a[i],a[pivIndex]))
             {
                 i++;
@@ -43,7 +43,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        Integer a[] = {24,2,45,20,56,75,2,56,99,53,12};
+        Integer a[] = {24,2,45,20,56,75,2,56,99,53,12,20};
         System.out.println("Unsorted:");
         for (int x: a)
         {
