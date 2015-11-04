@@ -1,7 +1,6 @@
 package me.puneetsingh.hr.strings;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * https://www.hackerrank.com/challenges/bigger-is-greater
