@@ -1,4 +1,4 @@
-package me.puneetsingh.utils.LinkedList;
+package me.puneetsingh.utils.linkedlist;
 
 public class SimpleLinkedList {
     public Integer val=0;
