@@ -1,17 +1,17 @@
 package me.puneetsingh.commons.cache;
 
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class LRUCache<K, V> {
-    private LinkedList<K> ll;
-    private HashMap<K, V> hm;
+    private ConcurrentLinkedDeque<K> ll;
+    private ConcurrentHashMap<K, V> hm;
     private int size;
 
     public LRUCache(int size) {
-        ll = new LinkedList<K>();
-        hm = new HashMap<K, V>(size);
+        ll = new ConcurrentLinkedDeque<K>();
+        hm = new ConcurrentHashMap<K, V>(size);
         this.size = size;
     }
 
@@ -65,9 +65,15 @@ public class LRUCache<K, V> {
     }
 
     public void printKeysAndValues() {
-        for (Map.Entry<K, V> entry : hm.entrySet()) {
-            System.out.println("Key:" + entry.getKey() + " Value:" + entry.getValue() + " Index:" + ll.lastIndexOf(entry.getKey()));
+        System.out.print("{ ");
+        int i = 0;
+        for (Object k : ll.toArray()) {
+            System.out.print(k + "=" + hm.get(k));
+            if (i < ll.size() - 1)
+                System.out.print(", ");
+            i++;
         }
+        System.out.print(" }");
         System.out.println();
     }
 }

@@ -1,6 +1,7 @@
 package me.puneetsingh.Runners;
 
 import me.puneetsingh.commons.cache.LRUCache;
+import me.puneetsingh.commons.cache.LRUCacheLHM;
 
 public class LRURunner {
     public static void main(String[] args) {
