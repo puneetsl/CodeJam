@@ -1,7 +1,7 @@
 package me.puneetsingh.basics.misc;
 
 
-import me.puneetsingh.utils.LinkedList.SimpleLinkedList;
+import me.puneetsingh.utils.linkedlist.SimpleLinkedList;
 
 public class ReverseLinkedList {
     private static void printLL(SimpleLinkedList node)
