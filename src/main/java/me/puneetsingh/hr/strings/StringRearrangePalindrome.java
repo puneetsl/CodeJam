@@ -8,11 +8,13 @@ import java.util.HashSet;
  */
 
 public class StringRearrangePalindrome {
-    static void stub(boolean b){}//function to do nothing but to digest boolean value and return nothing
+    static void stub(boolean b) {
+    }//function to do nothing but to digest boolean value and return nothing
+
     private static boolean isRearrangeableToPalindrome(String s) {
         HashSet<Character> hs = new HashSet<Character>();
         for (char c : s.toCharArray()) {
-            stub(hs.contains(c)? hs.remove(c) : hs.add(c));
+            stub(hs.contains(c) ? hs.remove(c) : hs.add(c));
         }
         return hs.size() <= 1;
     }

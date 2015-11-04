@@ -1,18 +1,17 @@
 package me.puneetsingh.basics.sort;
 
-
 import me.puneetsingh.utils.SortHelper;
 
-
 public class SelectionSort {
+    private static int comparisons = 0;
+
     public static int getComparisons() {
         return comparisons;
     }
 
-    private static int comparisons =0;
     public static void sort(Comparable[] a) {
         int minIndex;
-        comparisons=0;
+        comparisons = 0;
         try {
             for (int i = 0; i < a.length; i++) {
                 minIndex = i;
@@ -30,7 +29,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer a[] = {5,6,3,4,1,7,15,26,87,17,10,98,76};
+        Integer a[] = {5, 6, 3, 4, 1, 7, 15, 26, 87, 17, 10, 98, 76};
         System.out.println("Unsorted:");
         for (int x : a) {
             System.out.println(x);
@@ -40,8 +39,8 @@ public class SelectionSort {
         for (int x : a) {
             System.out.println(x);
         }
-        System.out.println("Total comparisons: "+getComparisons());
-        Integer[] b = {98,87,76,26,17,15,10,7,6,5,4,3,1};
+        System.out.println("Total comparisons: " + getComparisons());
+        Integer[] b = {98, 87, 76, 26, 17, 15, 10, 7, 6, 5, 4, 3, 1};
         SelectionSort.sort(b);
         System.out.println("Worst case comparisons: " + SelectionSort.getComparisons());
     }

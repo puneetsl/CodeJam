@@ -1,6 +1,5 @@
 package me.puneetsingh.ctci.chapter1;
 
-
 public class Q1_6 {
     //Rotate the NxN matrix by 90 degree
     // Allowed extra memory
@@ -30,7 +29,6 @@ public class Q1_6 {
                 arr[N - 1 - i][l] = temp;
             }
         }
-
     }
 
     private static int[][] generateNNMatrix(int N) {
@@ -66,6 +64,5 @@ public class Q1_6 {
         rotateNN90NoMem(nmarr);
         System.out.println();
         printMatrix(nmarr);
-
     }
 }
