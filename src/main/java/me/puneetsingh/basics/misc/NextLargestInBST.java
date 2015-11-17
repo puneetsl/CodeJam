@@ -10,44 +10,35 @@ import java.util.List;
 import java.util.Stack;
 
 public class NextLargestInBST {
-    static boolean b;
-    public static int getNextGreater(int num, TreeNode root)
-    {
+
+    public static int getNextGreater(int num, TreeNode root) {
         return inOrder(num, root);
+
     }
 
-    private static int inOrder(int num, TreeNode root)
-    {
-        if(root == null)
-            return 0;
-        int x;
-        x = inOrder(num, root.left);
-        if(b)
+    private static int inOrder(int num, TreeNode root) {
+        int x = -1;
+        if (root.left != null && x==-1)
+            x = inOrder(num, root.left);
+        if (root.data > num && x==-1)
             return root.data;
-        if(num==root.data)
-            b=true;
-        x = inOrder(num,root.right);
+        if (root.right != null && x==-1)
+            x = inOrder(num, root.right);
         return x;
     }
-    private static int getNextGreaterLogN(int num, TreeNode root)
-    {
+
+    private static int getNextGreaterLogN(int num, TreeNode root) {
         Stack<TreeNode> s = new Stack<TreeNode>();
         fillNodes(num, root, s);
-        while(!s.empty())
-        {
+        while (!s.empty()) {
             TreeNode t = s.pop();
-//            System.out.println("-"+t.data);
-
-            if(t.right!=null && t.data>=num)
-            {
+            if (t.right != null && t.data >= num) {
                 int i = getLeftMost(t.right);
-                if(t.data>num)
-                    return i>t.data? t.data:i;
+                if (t.data > num)
+                    return i > t.data ? t.data : i;
                 else
                     return i;
-            }
-            else if(t.right==null && t.data>num)
-            {
+            } else if (t.right == null && t.data > num) {
                 return t.data;
             }
         }
@@ -55,20 +46,20 @@ public class NextLargestInBST {
     }
 
     private static int getLeftMost(TreeNode t) {
-        if(t.left==null)
+        if (t.left == null)
             return t.data;
         else
             return getLeftMost(t.left);
     }
 
     private static void fillNodes(int num, TreeNode root, Stack<TreeNode> s) {
-        if(root==null)
+        if (root == null)
             return;
 
         s.add(root);
-        if(root.data == num)
+        if (root.data == num)
             return;
-        if(num > root.data)
+        if (num > root.data)
             fillNodes(num, root.right, s);
         else
             fillNodes(num, root.left, s);
@@ -82,11 +73,10 @@ public class NextLargestInBST {
         }
         Shuffle.randomize(a);
 
-        for (int x: a)
-        {
+        for (int x : a) {
             bst.insert(x);
         }
-//        System.out.println(getNextGreater(5, bst.root));
+        System.out.println(getNextGreater(5, bst.root));
         System.out.println(getNextGreaterLogN(1, bst.root));
         BTreePrinter.printNode(bst.root);
     }
