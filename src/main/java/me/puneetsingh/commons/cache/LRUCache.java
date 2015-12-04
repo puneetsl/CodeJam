@@ -1,6 +1,5 @@
 package me.puneetsingh.commons.cache;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
