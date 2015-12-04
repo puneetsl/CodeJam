@@ -3,7 +3,7 @@ package me.puneetsingh.basics.misc;
 public class LongestPalindromicSunsequence {
     public static void main (String[] args) throws java.lang.Exception
     {
-        longestPalindromicSubsequenceN2("abacdfgdcaba");
+        longestPalindromicSubsequenceN2("aaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaa");
     }
     public static void longestPalindromicSubsequenceN2(String s)
     {
