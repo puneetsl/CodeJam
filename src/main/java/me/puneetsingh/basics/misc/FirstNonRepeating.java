@@ -2,10 +2,11 @@ package me.puneetsingh.basics.misc;
 
 import me.puneetsingh.utils.Strings;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
+
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class FirstNonRepeating {
 
@@ -46,29 +47,27 @@ public class FirstNonRepeating {
         LinkedHashSet<Character> lhs = new LinkedHashSet<Character>();
         HashSet<Character> trashed = new HashSet<Character>();
         Character[] car = Strings.toCharacterArray(s);
-        for (int i = 0; i < car.length; i++) {
-            if (lhs.contains(car[i])&&!trashed.contains(car[i])) {
-                    trashed.add(car[i]);
-                    lhs.remove(car[i]);
+        for (Character aCar : car) {
+            if (lhs.contains(aCar) && !trashed.contains(aCar)) {
+                trashed.add(aCar);
+                lhs.remove(aCar);
             } else {
-                lhs.add(car[i]);
+                lhs.add(aCar);
             }
         }
         return lhs.iterator().next();
     }
 
-    private static char findFirstNonRepeatingNoOrder2(String s)
-    {
+    private static char findFirstNonRepeatingNoOrder2(String s) {
 
-        int i,n;
-        HashSet <Character> mp = new HashSet<Character>();
-        char res='~';
-        n=s.length();
+        int i, n;
+        HashSet<Character> mp = new HashSet<Character>();
+        char res = '~';
+        n = s.length();
         Character[] car = Strings.toCharacterArray(s);
-        for(i=n-1;i>=0;i--)
-        {
-            if(!mp.contains(car[i]))
-                res=car[i];
+        for (i = n - 1; i >= 0; i--) {
+            if (!mp.contains(car[i]))
+                res = car[i];
             mp.add(car[i]);
 
         }
