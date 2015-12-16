@@ -97,7 +97,7 @@ public class RedBlack<Key extends Comparable<Key>, Value> {
     // is node x red; false if x is null ?
     private boolean isRed(Node x) {
         if (x == null) return false;
-        return x.color == RED;
+        return x.color;
     }
 
     // number of node in subtree rooted at x; 0 if x is null
