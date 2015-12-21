@@ -14,4 +14,4 @@
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [Word Ladder](https://leetcode.com/problems/word-ladder/)
 - [Find equilibrium](http://www.geeksforgeeks.org/equilibrium-index-of-an-array/)
-- [Find Basic in 2D array](http://www.geeksforgeeks.org/flipkart-interview-set-2-for-sde-1/)
+- [Find basin in 2D array](http://www.geeksforgeeks.org/flipkart-interview-set-2-for-sde-1/)
