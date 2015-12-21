@@ -7,6 +7,13 @@
     <groupId>me.puneetsingh</groupId>
     <artifactId>CodeJam</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.rubiconproject.oss</groupId>
+            <artifactId>jchronic</artifactId>
+            <version>0.2.6</version>
+        </dependency>
+    </dependencies>
 
     
 </project>
