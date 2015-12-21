@@ -2,9 +2,6 @@ package me.puneetsingh.eopi;
 
 import java.util.ArrayList;
 
-/**
- * Created by pludu on 12/4/2015.
- */
 public class ComputePhoneNumMnemonics {
 
 

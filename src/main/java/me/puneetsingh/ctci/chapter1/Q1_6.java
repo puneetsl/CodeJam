@@ -44,8 +44,8 @@ public class Q1_6 {
 
     private static void printMatrix(int[][] arr) {
         for (int[] anArr : arr) {
-            for (int j = 0; j < anArr.length; j++) {
-                System.out.print(anArr[j] + "\t");
+            for (int anAnArr : anArr) {
+                System.out.print(anAnArr + "\t");
             }
             System.out.println();
         }
