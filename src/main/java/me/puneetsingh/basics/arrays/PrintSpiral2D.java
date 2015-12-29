@@ -1,4 +1,4 @@
-package me.puneetsingh.commons.arrays;
+package me.puneetsingh.basics.arrays;
 
 
 public class PrintSpiral2D {

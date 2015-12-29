@@ -27,8 +27,6 @@ public class KthLargest {
                 j--;
             }
         }
-        if(i==j && i==k)
-            return a[k];
         if (i > k)
             getKMax(a, k, min, j);//left
         if (j < k)
@@ -45,7 +43,7 @@ public class KthLargest {
     }
     public static void main (String[] args) throws java.lang.Exception
     {
-        Integer[] vals = {1,6,2,4,3,9,8,7,5};
-        System.out.println(getKMax(vals, 9));
+        Integer[] vals = {10,16,12,14,13,9,18,17,15};
+        System.out.println(getKMax(vals, 3));
     }
 }
