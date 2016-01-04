@@ -1,4 +1,4 @@
-package me.puneetsingh.basics.misc;
+package me.puneetsingh.basics.arrays;
 
 public class MedianOfTwoSortedArrays {
     public static float findMedian(int[] a, int[] b) {

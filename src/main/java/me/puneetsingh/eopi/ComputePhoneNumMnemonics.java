@@ -1,6 +1,9 @@
 package me.puneetsingh.eopi;
 
+import sun.security.util.BitArray;
+
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class ComputePhoneNumMnemonics {
 
@@ -18,6 +21,10 @@ public class ComputePhoneNumMnemonics {
         dialPad.add("TUV");//8
         dialPad.add("WXYZ");//9
         printAllMnemonics(dialPad, 237);
+        System.out.println();
+        printPermu(dialPad, "","237");
+
+
     }
 
     private static void printAllMnemonics(ArrayList<String> dialPad, int num) {
@@ -44,7 +51,26 @@ public class ComputePhoneNumMnemonics {
             incrementCounter(counter,counterMax);
         }
     }
+    public static void printPermu(ArrayList<String> T9, String curr,String number)
+    {
+        int now=0;
+        if(number.length()==0)
+        {
+            System.out.println(curr);
+        }
+        for(int i=0;i<number.length();i++)
+        {
 
+            now = number.charAt(i)-48;
+            if(now<1||now>9)
+                continue;
+            String gotT9 = T9.get(now);
+            for(int j=0;j<gotT9.length();j++)
+            {
+                printPermu(T9, curr+gotT9.charAt(j),number.substring(0,i)+number.substring(i+1,number.length()));
+            }
+        }
+    }
     private static void incrementCounter(int[] counter, int[] counterMax) {
         counter[counter.length-1]++;
         int k = 1;

@@ -4,13 +4,9 @@ package me.puneetsingh.basics.arrays;
 public class SinPrinter {
     public static void main(String[] args) {
         String s = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mollis, purus id scelerisque " +
-                "sollicitudin, nisl urna laoreet mauris, eget vestibulum nibh ligula at augue. Donec et finibus"+
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mollis, purus id scelerisque " +
-                "sollicitudin, nisl urna laoreet mauris, eget vestibulum nibh ligula at augue. Donec et finibus" +
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mollis, purus id scelerisque " +
-                "sollicitudin, nisl urna laoreet mauris, eget vestibulum nibh ligula at augue. Donec et finibus";
+                "sollicitudin, nisl urna laoreet mauris, eget vestibulum nibh ligula" ;
 
-        int verticalHt = 30;
+        int verticalHt = 15;
 
         printSin(s,verticalHt);
     }
@@ -26,7 +22,6 @@ public class SinPrinter {
             if(h == verticalHt)
                 h--;
             x+=v;
-            System.out.println(h);
             grid[h][i] = s.charAt(i);
         }
         for (int i=0; i< verticalHt; i++)
