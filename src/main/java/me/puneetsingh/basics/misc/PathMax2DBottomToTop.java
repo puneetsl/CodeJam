@@ -46,14 +46,59 @@ public class PathMax2DBottomToTop {
         return  max;
 
     }
+    static int findMaxPointsDP(int[][] grid)
+    {
+        return findMaxPointsDP(grid, grid[0].length-1, grid.length/2);
+    }
+
+    private static int findMaxPointsDP(int[][] grid, int x, int y) {
+        int [][] DP = new int[grid.length][grid[0].length];
+        DP[x][y] = grid[x][y];
+        int sr = y;
+        int er = y;
+        int m;
+        for(int i=x-1;i>=0;i--)
+        {
+            if(sr>0)
+                sr--;
+            if(er<grid[0].length-1)
+                er++;
+            for(m = sr;m<=er;m++)
+            {
+                int a = m-1>=sr?DP[i+1][m-1]:0;
+                int b = m+1<=er?DP[i+1][m+1]:0;
+                int c = m>sr&&m<er?DP[i+1][m]:0;
+                int temp  = grid[i][m]+Math.max(a,Math.max(b,c));
+                DP[i][m] = DP[i][m]>temp?DP[i][m]:temp;
+            }
+        }
+        int max = 0;
+        for(int i=0;i<DP[0].length;i++)
+        {
+            if(DP[0][i]>max)
+                max = DP[0][i];
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
-        int  points_grid[][] = {
-                {119, 7, 1110, 1000},
-        {2, 7, 9, 1},
-        {0, 6, 2, 3},
-        {1, 0, 2, 0}
-        };
+        int  points_grid[][] =
+                {{2,3,4,4,4,4,3,2},
+                { 3,4,6,6,6,6,4,3 },
+                { 4,6,8,8,8,8,6,4 },
+                { 4,6,8,8,8,8,6,4 },
+                { 4,6,8,8,8,8,6,4 },
+                { 4,6,8,8,8,8,6,4 },
+                { 3,4,6,6,6,6,4,3 },
+                { 2,3,4,4,4,4,3,2}};
+        long startTime = System.nanoTime();
         System.out.println(findMaxPoints(points_grid));
+        long endTime = System.nanoTime();
+        System.out.println((endTime - startTime) +" MS");
+        startTime = System.nanoTime();
+        System.out.println(findMaxPointsDP(points_grid));
+        endTime = System.nanoTime();
+        System.out.println((endTime - startTime) +" MS");
 
     }
 }
