@@ -20,6 +20,7 @@ public class SwapAlternate {
         }
         return head;
     }
+
     public static void main(String[] args) {
         SimpleLinkedList head = createLL();
         printLL(head);
@@ -27,51 +28,48 @@ public class SwapAlternate {
         head = swapAlternateNR(null);
         printLL(head);
     }
+
     private static SimpleLinkedList swapAlternateNR(SimpleLinkedList head) {
-        if(head==null)
+        if (head == null)
             return null;
         SimpleLinkedList prev = null;
         SimpleLinkedList curr = head;
         SimpleLinkedList next = head.next;
         SimpleLinkedList ret = head.next;
 
-        while(next!=null) {
-            if(prev!=null)
-            {
+        while (next != null) {
+            if (prev != null) {
                 prev.next = next;
             }
             SimpleLinkedList temp = next.next;
             next.next = curr;
             curr.next = temp;
-            if(temp!=null)
-            {
+            if (temp != null) {
                 prev = curr;
-                curr= curr.next;
+                curr = curr.next;
                 next = curr.next;
-            }
-            else
-            {
+            } else {
                 break;
             }
         }
-        return ret==null?head:ret;
+        return ret == null ? head : ret;
     }
+
     private static SimpleLinkedList swapAlternateR(SimpleLinkedList head) {
-        return swapAlternateR(null,head,head.next);
+        return swapAlternateR(null, head, head.next);
     }
-    private static SimpleLinkedList swapAlternateR(SimpleLinkedList prev,SimpleLinkedList curr, SimpleLinkedList next)
-    {
-        if(next!=null) {
-            if(prev!=null)
-            {
+
+    private static SimpleLinkedList swapAlternateR(SimpleLinkedList prev, SimpleLinkedList curr, SimpleLinkedList next) {
+        if (next != null) {
+            if (prev != null) {
                 prev.next = next;
             }
             SimpleLinkedList temp = next.next;
             next.next = curr;
             curr.next = temp;
-            if(temp!=null)
-                swapAlternateR(curr,curr.next,curr.next.next);
+            if (temp != null)
+                swapAlternateR(curr, curr.next, curr.next.next);
         }
-        return next==null?curr:next;
+        return next == null ? curr : next;
     }
 }
