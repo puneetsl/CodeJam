@@ -7,22 +7,26 @@ import java.util.*;
  */
 public class AllPermutationsOfString {
 
-    public static void permutationRecursive(String str) {
-        permutationRecursive("", str);
+    public static List<String> permutationRecursive(String str) {
+        LinkedList<String> v = new LinkedList<String>();
+        permutationRecursive("", str, v);
+        return v;
     }
-    private static void permutationRecursive(String prefix, String str) {
+    private static void permutationRecursive(String prefix, String str, LinkedList<String> v) {
         int n = str.length();
-        if (n == 0) System.out.println(prefix);
+        if (n == 0) {
+            v.add(prefix);
+        }
         else {
             for (int i = 0; i < n; i++)
-                permutationRecursive(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
+                permutationRecursive(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n),v);
         }
     }
-    public static void permutationIterative(String str) {
+    public static List<String> permutationIterative(String str) {
         LinkedList<String> v = new LinkedList<String>();
         if (str.length() <= 1) {
             System.out.println(str);
-            return;
+            return v;
         }
         v.add(String.valueOf(str.charAt(0)));
         int w;
@@ -35,14 +39,20 @@ public class AllPermutationsOfString {
                 }
             }
         }
-        for (String s : v) {
-            System.out.println(s);
-        }
+        return v;
     }
 
     public static void main(String[] args) {
-        //permutationRecursive("abcde");
-        permutationIterative("abcd");
+        long startTime = System.nanoTime();
+        permutationRecursive("abcdefgh");
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / 10000;
+        System.out.println("Recursive: " + duration + " MS");
+        startTime = System.nanoTime();
+        permutationIterative("abcdefgh");
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 10000;
+        System.out.println("Iterative: " + duration + " MS");
 
     }
 

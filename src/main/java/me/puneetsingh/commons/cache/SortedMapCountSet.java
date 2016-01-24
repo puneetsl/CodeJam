@@ -5,6 +5,14 @@ import java.util.*;
 public class SortedMapCountSet<K> implements Iterable{
     public enum Order {FORWARD, REVERSE}
     HashMap<K,Integer> _actualMap = new HashMap<>();
+    /*
+        I think that the sorted map would not use actual log2(n) time in case of n additions
+        this is because if ie assume if input follows normal distribution/ long tail distribution
+        many of the entries would be repeated.
+        Thus if we say that unique entries in SortedMap is k and a total of n numbers inserted in the HashMap
+        k<<n if the data follows above mentioned distributions. Thus the algorithm would perform in O(n*log2(k))
+        which is very close to O(n)
+     */
     SortedMap<Integer, HashSet<K>> _reverseMap = null;
     public SortedMapCountSet()
     {
@@ -41,6 +49,18 @@ public class SortedMapCountSet<K> implements Iterable{
     public Iterator iterator() {
         return new MyIterator();
     }
+
+    public int size()
+    {
+        return _actualMap.size();
+    }
+    public boolean remove(K key)
+    {
+        if(!_actualMap.containsKey(key)) return false;
+        _reverseMap.get(_actualMap.get(key)).remove(key);
+        _actualMap.remove(key);
+        return true;
+    }
     class MyIterator <T> implements Iterator<T> {
 
         Iterator<Map.Entry<Integer, HashSet<K>>> it = _reverseMap.entrySet().iterator();
@@ -73,7 +93,6 @@ public class SortedMapCountSet<K> implements Iterable{
            }
 
         }
-
         public T next() {
             return (T) valItr.next();
         }
