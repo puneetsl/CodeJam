@@ -15,6 +15,7 @@ public class AllPermutationsOfString {
     private static void permutationRecursive(String prefix, String str, LinkedList<String> v) {
         int n = str.length();
         if (n == 0) {
+
             v.add(prefix);
         }
         else {

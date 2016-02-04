@@ -34,8 +34,11 @@ public class NextLargestInBST {
         TreeNode t = s.pop();
         if(t.right != null)
             return getLeftMost(t.right);
-        else
+        else {
+            while (s.peek().data < num)
+                s.pop();
             return s.pop().data;
+        }
     }
 
     private static int getLeftMost(TreeNode t) {
@@ -70,7 +73,7 @@ public class NextLargestInBST {
             bst.insert(x);
         }
 //        System.out.println(getNextGreater(5, bst.root));
-        System.out.println(getNextGreaterLogN(1, bst.root));
+        System.out.println(getNextGreaterLogN(7, bst.root));
         BTreePrinter.printNode(bst.root);
     }
 }
