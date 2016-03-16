@@ -1,4 +1,4 @@
-package me.puneetsingh.Runners;
+package me.puneetsingh.runners;
 
 import me.puneetsingh.commons.trees.BinaryTree;
 

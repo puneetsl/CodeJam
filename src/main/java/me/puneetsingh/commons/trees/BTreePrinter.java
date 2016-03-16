@@ -1,7 +1,5 @@
 package me.puneetsingh.commons.trees;
 
-import me.puneetsingh.commons.tree.TreeNode;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
