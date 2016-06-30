@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream:src/main/java/me/puneetsingh/commons/trees/BTreePrinter.java
-package me.puneetsingh.commons.trees;
-=======
 package me.puneetsingh.utils.commons.trees;
->>>>>>> Stashed changes:src/main/java/me/puneetsingh/utils/commons/trees/BTreePrinter.java
+
 
 import java.util.ArrayList;
 import java.util.Collections;
