@@ -17,16 +17,16 @@
 1. Maths and Logic
 1. Knowledge based
   - Object Oriented programming
-    1. DRY( Don't repeat yourself)
-    2. Encapsulate What changes.
-    3. Open Closed Design Principles
-    4. Single Responsibility Principle
-    5. Dependency Injection or Inversion Principle
-    6. Favor Composition over Inheritance
-    7. Liskov Subsitution Principle
-    8. Interface Segregation Principle
-    9. Programming for interface not implementation.
-    10. Delegation Principle
+    - DRY( Don't repeat yourself)
+    - Encapsulate What changes.
+    - Open Closed Design Principles
+    - Single Responsibility Principle
+    - Dependency Injection or Inversion Principle
+    - Favor Composition over Inheritance
+    - Liskov Subsitution Principle
+    - Interface Segregation Principle
+    - Programming for interface not implementation.
+    - Delegation Principle
   - Java
   - DBMS
   - Threads and Locks
