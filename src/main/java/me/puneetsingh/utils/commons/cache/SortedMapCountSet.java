@@ -96,5 +96,10 @@ public class SortedMapCountSet<K> implements Iterable{
         public T next() {
             return (T) valItr.next();
         }
+
+        @Override
+        public void remove() {
+
+        }
     }
 }
