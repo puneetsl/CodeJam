@@ -17,6 +17,7 @@ public class Regular_Expression_10 {
 
     public boolean isMatch(String s, String p) {
         boolean[][] DP = new boolean[s.length()+1][p.length()+1];
+        /* Initiation */
         DP[0][0]=true;
         //Deals with patterns like a* or a*b* or a*b*c*
         for (int i = 1; i < DP[0].length; i++) {
@@ -24,6 +25,7 @@ public class Regular_Expression_10 {
                 DP[0][i] = DP[0][i - 2];
             }
         }
+        /* main logic */
         for(int i=0;i<s.length();i++)
         {
             for(int j=0;j<p.length();j++)
@@ -38,6 +40,7 @@ public class Regular_Expression_10 {
                 }
             }
         }
+        /* printing DP array */
         for(int i=0;i<s.length()+1;i++)
         {
             for(int j=0;j<p.length()+1;j++)
