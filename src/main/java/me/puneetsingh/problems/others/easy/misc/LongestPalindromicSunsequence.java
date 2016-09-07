@@ -1,70 +1,58 @@
 package me.puneetsingh.problems.others.easy.misc;
 
 public class LongestPalindromicSunsequence {
-    public static void main (String[] args) throws java.lang.Exception
-    {
-        longestPalindromicSubsequenceN2("aaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaa");
+    public static void main(String[] args) throws java.lang.Exception {
+        System.out.println(longestPalindromicSubsequenceN2("cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"));
     }
-    public static void longestPalindromicSubsequenceN2(String s)
-    {
-        int max=0;
-        int index = 0;
-        boolean odd=true;
-        StringBuilder sb = new StringBuilder();
-        //odd
-        for(int i=0; i< s.length(); i++)
-        {
-            int k=0;
-            while((i-k>0&&i+k<s.length())&&(s.charAt(i-k)==s.charAt(i+k)))
-            {
-                k++;
-            }
-            int val = 2*k+1;
-            if(max < val)
-            {
-                index = i;
-                max = val;
-            }
-        }
-        //even
-        for(int i=0; i< s.length(); i++)
-        {
-            int k=0;
-            while((i-k>0&&i+k+1<s.length())&&(s.charAt(i-k)==s.charAt(i+1+k)))
-            {
-                k++;
-            }
-            int val = 2*k;
-            if(max < val)
-            {
-                index = i;
-                max = val;
-                odd = false;
-            }
-        }
-        int k=0;
-        if(odd)
-        {
 
-            sb.append(String.valueOf(s.charAt(index+k)));
-            k++;
-            while((index-k>0&&index+k<s.length())&&(s.charAt(index-k)==s.charAt(index+k)))
-            {
-                sb.append(String.valueOf(s.charAt(index+k)));
-                sb.insert(0,String.valueOf(s.charAt(index-k)));
-                k++;
+    public static String longestPalindromicSubsequenceN2(String s) {
+        int max = 0;
+        String mStr = "";
+        for (int i = 0; i < s.length(); i++) {
+            String l = getPalindrome(i, s);
+//            System.out.println(l);
+            if (max < l.length()) {
+                max = l.length();
+                mStr = l;
             }
-            System.out.println(sb.toString());
         }
-        else
+        return mStr;
+    }
+
+    private static String getPalindrome(int i, String s) {
+        //odd
+        int j = i - 1;
+        int k = i + 1;
+        String o=s.substring(i,i+1),e="";
+        System.out.println("i=> "+j+":"+k);
+        while (j >= 0 && k < s.length())
         {
-            while((index-k>0&&index+k+1<s.length())&&(s.charAt(index-k)==s.charAt(index+1+k)))
+            if (s.charAt(j) == s.charAt(k))
             {
-                sb.append(String.valueOf(s.charAt(index + k + 1)));
-                sb.insert(0,String.valueOf(s.charAt(index-k)));
+                o = s.substring(j, k + 1);
+                j--;
                 k++;
-            }
-            System.out.println(sb.toString());
+
+                System.out.println("O => "+o);
+            } else
+                break;
         }
+        if(i+1 < s.length())
+        if(s.charAt(i) == s.charAt(i+1))
+        {
+            j = i - 1;
+            k = i + 2;
+            e = s.substring(i,k);
+            while (j > 0 && k < s.length())
+            {
+                if (s.charAt(j) == s.charAt(k))
+                {
+                    j--;
+                    k++;
+                } else
+                    e = s.substring(j, k + 1);
+            }
+        }
+        return o.length()<e.length()? e:o;
     }
 }
