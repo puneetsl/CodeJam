@@ -47,7 +47,7 @@ public class IntegerToRoman {
     }
 
     private int closestUpper(int num) {
-        if (num > 1000) return 5999;
+        if (num > 1000) return Integer.MAX_VALUE;
         if (num > 500) return 1000;
         if (num > 100) return 500;
         if (num > 50) return 100;
@@ -74,6 +74,6 @@ public class IntegerToRoman {
 
     public static void main(String[] args) {
         IntegerToRoman itr = new IntegerToRoman();
-        System.out.println(itr.intToRoman(4));
+        System.out.println(itr.intToRoman(25099));
     }
 }

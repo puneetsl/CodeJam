@@ -5,20 +5,33 @@ import java.util.ArrayList;
 
 public class LongestIncreasingSubsequence<K> {
     public static void main(String[] args) {
-        Integer[] arr = {0,1,2,3,4,5,1,3,8};
+        Integer[] arr = {2,2};
         LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
-        lis.getSequenceDPNLOGN(arr);
+        System.out.println(lis.getSequenceDPNLOGN(arr));
+        System.out.println(lis.getLISDP(arr));
     }
 
-    public Comparable<K>[] getSequenceDPN2(Comparable<K>[] arr) {
-        ArrayList<Comparable<K>> seqList = new ArrayList<Comparable<K>>();
-        for (int i = 1; i < arr.length; i++) {
+    public Integer getLISDP(Integer[] num)
+    {
+        int[] DP = new int[num.length];
+        for (int i = 0; i < num.length; i++) {
+            DP[i] = 1;
+        }
+        int max =0;
+        for (int i = 1; i < num.length; i++) {
             for (int j = 0; j < i; j++) {
+                if(num[i]>num[j]&&DP[i]<DP[j]+1) {
+                    DP[i] = DP[j] + 1;
+                    max = max<DP[i]?DP[i]:max;
+                }
             }
         }
-        return null;
+//        for (int s: DP)
+//        {
+//            System.out.println(s);
+//        }
+        return max;
     }
-
     private int ceilIndex(Integer[] input, int T[], int end, int s) {
         int start = 0;
         int middle;
@@ -53,18 +66,13 @@ public class LongestIncreasingSubsequence<K> {
                 R[T[len]] = T[len - 1];
             } else { //do a binary search to find ceiling of input[i] and put it there.
                 int index = ceilIndex(input, T, len, input[i]);
-                T[index] = i;
-                R[T[index]] = T[index - 1];
+                if(index>0) {
+                    T[index] = i;
+                    R[T[index]] = T[index - 1];
+                }
             }
         }
-        //this prints increasing subsequence in reverse order.
-        System.out.print("Longest increasing subsequence ");
-        int index = T[len];
-        while (index != -1) {
-            System.out.print(input[index] + " ");
-            index = R[index];
-        }
         System.out.println();
-        return len + 1;
+        return len+1;
     }
 }
