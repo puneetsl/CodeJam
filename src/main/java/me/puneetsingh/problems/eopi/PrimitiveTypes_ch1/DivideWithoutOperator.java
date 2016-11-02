@@ -1,4 +1,4 @@
-package me.puneetsingh.problems.eopi;
+package me.puneetsingh.problems.eopi.PrimitiveTypes_ch1;
 
 /*
     Given two positive integers x and y, how would you compute x/y if the only operators you can use are addition, subtraction, and shifting?
